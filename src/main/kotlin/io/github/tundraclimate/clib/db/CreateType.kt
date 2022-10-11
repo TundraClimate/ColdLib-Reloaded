@@ -10,7 +10,7 @@ sealed interface CreateType {
 
         init {
             sql.append(name)
-            sql.append("(${columns.reduce { it, next -> "$it $next," }.removeSuffix(",")})")
+            sql.append("(${columns.reduce { it, next -> "$it, $next" }})")
         }
 
         override fun more(moreOptions: String): TABLE {
@@ -50,7 +50,7 @@ sealed interface CreateType {
             sql.append("INDEX ")
             sql.append(name)
             sql.append(" ON ")
-            sql.append("$table(${columns.reduce { it, next -> "$it $next," }.removeSuffix(",")})")
+            sql.append("$table(${columns.reduce { it, next -> "$it, $next" }})")
         }
 
         override fun more(moreOptions: String): INDEX {
@@ -74,7 +74,7 @@ sealed interface CreateType {
             sql.append("$table ")
             if (where.isNotEmpty()) sql.append("$where ")
             sql.append("BEGIN ")
-            sql.append(foreach.reduce { it, next -> "$it $next;" }.removeSuffix(","))
+            sql.append(foreach.reduce { it, next -> "$it; $next" })
             sql.append("END")
         }
 
