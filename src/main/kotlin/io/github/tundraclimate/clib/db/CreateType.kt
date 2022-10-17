@@ -75,6 +75,7 @@ sealed interface CreateType {
             if (where.isNotEmpty()) sql.append("$where ")
             sql.append("BEGIN ")
             sql.append(foreach.reduce { it, next -> "$it; $next" })
+            sql.append(";")
             sql.append("END")
         }
 
