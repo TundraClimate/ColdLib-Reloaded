@@ -1,5 +1,7 @@
-package io.github.tundraclimate.clib.db
+package io.github.tundraclimate.clib.db.provide
 
+import io.github.tundraclimate.clib.db.CreateType
+import io.github.tundraclimate.clib.db.SQLite
 import java.sql.ResultSet
 
 class SQLiteProvider private constructor(private val sqlite: SQLite) {

@@ -2,6 +2,7 @@ package io.github.tundraclimate.clib.db
 
 import io.github.tundraclimate.clib.ColdLib
 import io.github.tundraclimate.clib.Result
+import io.github.tundraclimate.clib.db.provide.SQLiteProvider
 import java.io.File
 import java.sql.*
 

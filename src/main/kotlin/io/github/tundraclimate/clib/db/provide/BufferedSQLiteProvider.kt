@@ -1,4 +1,7 @@
-package io.github.tundraclimate.clib.db
+package io.github.tundraclimate.clib.db.provide
+
+import io.github.tundraclimate.clib.db.CreateType
+import io.github.tundraclimate.clib.db.SQLite
 
 class BufferedSQLiteProvider(private val sqlite: SQLite) {
     private val buff = mutableListOf<Pair<String, List<String>?>>()
