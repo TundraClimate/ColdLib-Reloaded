@@ -12,6 +12,7 @@ class ColdLib {
 
         fun init(plugin: JavaPlugin, initialize: ColdLibConfig.() -> Unit) {
             this.plugin = plugin
+            conf.addLooper("main")
             conf.initialize()
         }
 
