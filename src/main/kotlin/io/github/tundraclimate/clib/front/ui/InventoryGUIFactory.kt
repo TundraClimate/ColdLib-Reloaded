@@ -1,7 +1,6 @@
-package io.github.tundraclimate.clib.front.factory
+package io.github.tundraclimate.clib.front.ui
 
 import io.github.tundraclimate.clib.ColdLib
-import io.github.tundraclimate.clib.front.ui.InventoryGUI
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
