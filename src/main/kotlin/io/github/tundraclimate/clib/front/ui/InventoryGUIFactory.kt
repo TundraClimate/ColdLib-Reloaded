@@ -13,7 +13,7 @@ class InventoryGUIFactory(private val baseInventory: Inventory) {
     fun create(): InventoryGUI {
         val gui = object : InventoryGUI {
             override val handlers: MutableMap<Int, (event: InventoryClickEvent) -> Unit> = mutableMapOf()
-            private val inv = baseInventory
+            val inv = baseInventory
             override fun getElement(index: Int): ItemStack? {
                 return inv.getItem(index)
             }
@@ -37,7 +37,7 @@ class InventoryGUIFactory(private val baseInventory: Inventory) {
         val handler = object : Listener {
             @EventHandler
             fun onClick(e: InventoryClickEvent) {
-                if (gui.handlers.containsKey(e.slot)) gui.handlers[e.slot]?.let { it(e) }
+                if (gui.inv == e.clickedInventory && gui.handlers.containsKey(e.slot)) gui.handlers[e.slot]?.let { it(e) }
             }
         }
         Bukkit.getServer().pluginManager.registerEvents(handler, ColdLib.plugin)
